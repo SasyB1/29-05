@@ -18,4 +18,15 @@ export class MakeupService {
   getById(id: number): Observable<iMakeup> {
     return this.http.get<iMakeup>(`${this.apiUrl}/${id}`);
   }
+
+  favorites: iMakeup[] = [];
+
+  addToFavorites(item: iMakeup): void {
+    this.favorites.push(item);
+    console.log(this.favorites);
+  }
+
+  getFavorites(): iMakeup[] {
+    return this.favorites;
+  }
 }
